@@ -1,0 +1,55 @@
+// Dharma Lab - Solusi Digital & Keamanan
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+  schemas   = ["dharma_lab"]
+}
+
+model Portfolio {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  category     String
+  shortDesc    String
+  content      String
+  imageUrl     String
+  client       String?
+  year         String?
+  technologies String   @default("[]") // JSON array as string
+  liveUrl      String?
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@schema("dharma_lab")
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  icon        String   // lucide icon name
+  color       String   // tailwind color class
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@schema("dharma_lab")
+}
+
+model SiteSettings {
+  id             String   @id @default("default")
+  whatsappNumber String   @default("6281234567890")
+  email          String   @default("hello@dharma.lab")
+  phoneDisplay   String   @default("+62 812-3456-7890")
+  address        String   @default("Jakarta, Indonesia")
+  updatedAt      DateTime @updatedAt
+
+  @@schema("dharma_lab")
+}
