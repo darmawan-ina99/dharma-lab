@@ -1,12 +1,39 @@
-# 🛡️ Dharma Lab - Solusi Digital & Keamanan
+<div align="center">
+
+# 🛡️ Dharma Lab
+
+### Solusi Digital & Keamanan
 
 Website company profile lengkap dengan admin panel, showcase portofolio, dan integrasi WhatsApp. Dibangun dengan Next.js 16, TypeScript, Tailwind CSS, Prisma, dan Supabase Postgres.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwind-css)
-![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma)
-![Supabase](https://img.shields.io/badge/Supabase-Postgres-3ECF8E?logo=supabase)
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.3-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Prisma](https://img.shields.io/badge/Prisma-6.0-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://prisma.io)
+[![Supabase](https://img.shields.io/badge/Supabase-Postgres-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Made with ❤️ in Bandung](https://img.shields.io/badge/Made_with_❤️-Bandung-red.svg?style=flat-square)](https://en.wikipedia.org/wiki/Bandung)
+
+**[✨ Fitur](#-fitur-utama)** •
+**[🚀 Quick Start](#-quick-start)** •
+**[📸 Preview](#-preview)** •
+**[📚 Docs](#-documentation)** •
+**[🚢 Deploy](#-deploy-ke-vercel)**
+
+</div>
+
+---
+
+## 📸 Preview
+
+> **Note**: Screenshot placeholder — tambahkan screenshot website Anda di sini
+
+| 🏠 Homepage | 🔐 Admin Panel | 📁 Portfolio Detail |
+|:-----------:|:--------------:|:-------------------:|
+| Hero, Services, Portfolio, About, CTA | Login + Dashboard CRUD | Case study dengan Markdown |
+| Dark futuristic theme | Search & filter | Tech stack sidebar |
 
 ## ✨ Fitur Utama
 
@@ -49,7 +76,6 @@ Website company profile lengkap dengan admin panel, showcase portofolio, dan int
 - Google Analytics 4 integration
 - Robots configuration
 - Locale: id_ID
-- Sitemap-friendly
 
 ### 🎨 Design System Futuristik
 - Gradasi biru-ungu-pink (indigo → purple → pink)
@@ -117,6 +143,7 @@ dharma-lab/
 ├── tsconfig.json
 ├── next.config.ts
 ├── tailwind.config.ts
+├── vercel.json                    # Vercel deployment config
 └── README.md
 ```
 
@@ -124,8 +151,8 @@ dharma-lab/
 
 ### Prerequisites
 
-- Node.js 18+ or Bun
-- A Supabase account (free tier works)
+- Node.js 20+ atau Bun
+- Akun Supabase (free tier OK)
 - Git
 
 ### 1. Clone Repository
@@ -138,25 +165,20 @@ cd dharma-lab
 ### 2. Install Dependencies
 
 ```bash
-# Using bun (recommended)
+# Menggunakan bun (recommended)
 bun install
 
-# Or using npm
+# Atau npm
 npm install
 ```
 
-### 3. Setup Supabase
-
-1. Create a new project at [supabase.com](https://supabase.com)
-2. Go to **Settings → API** to get your project URL and API keys
-3. Set your database password (or reset it if needed)
-4. Copy `.env.example` to `.env` and fill in your values:
+### 3. Setup Environment Variables
 
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` with your Supabase credentials:
+Edit `.env` dengan kredensial Supabase Anda:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL="https://your-project-ref.supabase.co"
@@ -166,81 +188,52 @@ DATABASE_URL="postgresql://postgres.your-ref:your-password@aws-0-region.pooler.s
 DIRECT_URL="postgresql://postgres.your-ref:your-password@aws-0-region.pooler.supabase.com:5432/postgres"
 ```
 
-> ⚠️ **Important**: URL-encode special characters in your password. For example, `!` becomes `%21`.
+> ⚠️ **Important**: URL-encode special characters di password. Contoh: `!` → `%21`
 
 ### 4. Setup Database
 
 ```bash
-# Push schema to Supabase
+# Push schema ke Supabase
 bun run db:push
 
-# Seed with initial data (6 services + 8 portfolios)
+# Seed dengan data awal (6 services + 8 portfolios)
 bun run scripts/seed.ts
 ```
 
-### 5. Run Development Server
+### 5. Jalankan Development Server
 
 ```bash
 bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Buka [http://localhost:3000](http://localhost:3000) di browser.
 
-### 6. Access Admin Panel
+### 6. Akses Admin Panel
 
-- Navigate to `http://localhost:3000#admin`
-- Or click **"Admin"** in the navbar
-- Default password: `900021`
+- Navigasi ke `http://localhost:3000#admin`
+- Atau klik **"Admin"** di navbar
+- Password default: `900021`
 
-> 🔒 **Change the admin password** in `src/lib/auth.ts` before deploying to production.
+> 🔒 **Ganti password admin** di `src/lib/auth.ts` sebelum production.
 
 ## 📊 Database Schema
 
-The app uses 3 tables in the `dharma_lab` schema (separate from `public`):
+App menggunakan 3 tabel di schema `dharma_lab` (terpisah dari `public`):
 
 ### Portfolio
-| Field | Type | Description |
-|-------|------|-------------|
-| id | String (cuid) | Primary key |
-| title | String | Project title |
-| slug | String | URL-friendly identifier (unique) |
-| category | String | Project category |
-| shortDesc | String | Short description for cards |
-| content | String | Full case study (Markdown) |
-| imageUrl | String | Cover image URL |
-| client | String? | Client name |
-| year | String? | Project year |
-| technologies | String | JSON array of tech stack |
-| liveUrl | String? | Live demo URL |
-| featured | Boolean | Show as featured project |
-| createdAt | DateTime | Auto-generated |
-| updatedAt | DateTime | Auto-updated |
+Field utama: `id`, `title`, `slug` (unique), `category`, `shortDesc`, `content` (Markdown), `imageUrl`, `client`, `year`, `technologies` (JSON), `liveUrl`, `featured`, `createdAt`, `updatedAt`
 
 ### Service
-| Field | Type | Description |
-|-------|------|-------------|
-| id | String (cuid) | Primary key |
-| title | String | Service name |
-| slug | String | URL-friendly identifier (unique) |
-| description | String | Service description |
-| icon | String | Lucide icon name |
-| color | String | Tailwind gradient class |
-| order | Int | Display order |
+Field utama: `id`, `title`, `slug` (unique), `description`, `icon` (Lucide name), `color` (Tailwind class), `order`
 
 ### SiteSettings
-| Field | Type | Description |
-|-------|------|-------------|
-| id | String | Always "default" |
-| whatsappNumber | String | WhatsApp number (international format) |
-| email | String | Contact email |
-| phoneDisplay | String | Display phone number |
-| address | String | Business address |
+Field utama: `id` (default: "default"), `whatsappNumber`, `email`, `phoneDisplay`, `address`
 
 ## 🔌 API Endpoints
 
 | Endpoint | Method | Auth | Description |
 |----------|--------|------|-------------|
-| `/api/portfolio` | GET | - | List portfolios (supports `?category=` and `?featured=`) |
+| `/api/portfolio` | GET | - | List portfolios (supports `?category=` & `?featured=`) |
 | `/api/portfolio` | POST | Admin | Create new portfolio |
 | `/api/portfolio/[id]` | GET | - | Get single portfolio (by ID or slug) |
 | `/api/portfolio/[id]` | PUT | Admin | Update portfolio |
@@ -254,59 +247,12 @@ The app uses 3 tables in the `dharma_lab` schema (separate from `public`):
 | `/api/admin/session` | GET | - | Check session status |
 | `/api/supabase-status` | GET | - | Supabase connection health check |
 
-## 🎨 Customization
-
-### Change Brand Colors
-
-Edit `src/app/globals.css`:
-
-```css
-:root {
-  --primary: oklch(0.55 0.28 280);  /* Change this for different primary color */
-}
-```
-
-### Change Admin Password
-
-Edit `src/lib/auth.ts`:
-
-```typescript
-const ADMIN_PASSWORD = "your-new-password";
-```
-
-### Add New Service
-
-Via admin dashboard or directly in Supabase dashboard by inserting into `dharma_lab.Service` table.
-
-### Change WhatsApp Number
-
-1. Via admin dashboard (when settings UI is added)
-2. Or directly update `dharma_lab.SiteSettings` table in Supabase
-
-## 🚢 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) and import your repo
-3. Add environment variables in Vercel dashboard
-4. Deploy
-
-### Deploy to Netlify
-
-1. Push your code to GitHub
-2. Go to [netlify.com](https://netlify.com) and import your repo
-3. Add environment variables
-4. Set build command: `bun run build`
-5. Set publish directory: `.next`
-6. Deploy
-
 ## 📝 Scripts
 
 | Script | Description |
 |--------|-------------|
 | `bun run dev` | Start development server |
-| `bun run build` | Build for production |
+| `bun run build` | Build for production (`prisma generate && next build`) |
 | `bun run start` | Start production server |
 | `bun run lint` | Run ESLint |
 | `bun run db:push` | Push Prisma schema to database |
@@ -314,17 +260,66 @@ Via admin dashboard or directly in Supabase dashboard by inserting into `dharma_
 | `bun run scripts/seed.ts` | Seed database with initial data |
 | `bun run scripts/verify-supabase.ts` | Verify Supabase connection & data |
 
+## 🚢 Deploy ke Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/darmawan-ina99/dharma-lab)
+
+### Langkah Cepat:
+
+1. **Buka [vercel.com/new](https://vercel.com/new)**
+2. **Import repository** `dharma-lab` dari GitHub Anda
+3. **Vercel auto-detect**: Next.js framework, install & build commands
+4. **Tambah Environment Variables** (wajib!):
+   - `DATABASE_URL`
+   - `DIRECT_URL`
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+5. **Klik Deploy** — tunggu 2-3 menit
+6. **Done!** URL: `https://dharma-lab.vercel.app`
+
+📖 **Panduan lengkap**: Lihat [`download/DEPLOY-VERCEL.md`](./download/DEPLOY-VERCEL.md) untuk troubleshooting error umum, custom domain, dan monitoring.
+
+## 📚 Documentation
+
+- 📦 [Setup Supabase](./download/SUPABASE-SETUP.md) — Konfigurasi backend Supabase
+- 🚀 [Deploy ke Vercel](./download/DEPLOY-VERCEL.md) — Panduan deployment lengkap
+- 🗃️ [Prisma Schema](./prisma/schema.prisma) — Database schema definition
+
+## 🎨 Customization
+
+### Ganti Warna Brand
+
+Edit `src/app/globals.css`:
+
+```css
+:root {
+  --primary: oklch(0.55 0.28 280);  /* Ganti untuk warna primary berbeda */
+}
+```
+
+### Ganti Password Admin
+
+Edit `src/lib/auth.ts`:
+
+```typescript
+const ADMIN_PASSWORD = "your-new-password";
+```
+
+### Ganti Nomor WhatsApp
+
+Update via Supabase dashboard di tabel `dharma_lab.SiteSettings`, field `whatsappNumber`.
+
 ## 🔒 Security Notes
 
-- **Never commit `.env` file** — it's already in `.gitignore`
-- **Change admin password** before production deployment
-- **Use environment variables** for all secrets
-- **Enable Row Level Security (RLS)** on Supabase tables if exposing via REST API
-- **Use HTTPS** in production (automatic with Vercel/Netlify)
+- ✅ **Never commit `.env`** — sudah di `.gitignore`
+- ⚠️ **Ganti admin password** sebelum production
+- 🔐 **Enable RLS** di Supabase tables jika perlu
+- 🌐 **Use HTTPS** di production (auto di Vercel)
 
 ## 📄 License
 
-MIT License — feel free to use this project for your own business.
+MIT License — bebas digunakan untuk bisnis Anda.
 
 ## 👨‍💻 Author
 
@@ -344,4 +339,10 @@ MIT License — feel free to use this project for your own business.
 
 ---
 
+<div align="center">
+
+**⭐ Jangan lupa star repo ini jika bermanfaat!**
+
 Built with ❤️ in Bandung, Indonesia
+
+</div>
