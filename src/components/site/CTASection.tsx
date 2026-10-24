@@ -5,14 +5,17 @@ import { MessageCircle, ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import type { SiteSettings } from "@/lib/types";
+import { DEFAULT_SETTINGS } from "@/lib/site-content";
 
 export function CTASection() {
-  const [settings, setSettings] = useState<SiteSettings | null>(null);
+  const [settings, setSettings] = useState<SiteSettings>(DEFAULT_SETTINGS);
 
   useEffect(() => {
     fetch("/api/settings")
       .then((r) => r.json())
-      .then((data) => setSettings(data.settings))
+      .then((data) => {
+        if (data.settings?.whatsappNumber) setSettings(data.settings);
+      })
       .catch(() => {});
   }, []);
 
@@ -87,6 +90,7 @@ export function CTASection() {
                     </div>
                   </a>
 
+                  {settings.email && (
                   <a
                     href={`mailto:${settings.email}`}
                     className="flex items-center gap-3 text-purple-100 hover:text-white transition-colors group"
@@ -99,7 +103,9 @@ export function CTASection() {
                       <div className="font-semibold text-sm">{settings.email}</div>
                     </div>
                   </a>
+                  )}
 
+                  {settings.address && (
                   <div className="flex items-center gap-3 text-purple-100">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-white" />
@@ -109,6 +115,7 @@ export function CTASection() {
                       <div className="font-semibold text-sm">{settings.address}</div>
                     </div>
                   </div>
+                  )}
                 </>
               )}
             </div>

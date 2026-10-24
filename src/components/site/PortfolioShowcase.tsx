@@ -5,12 +5,14 @@ import { useEffect, useState, useMemo } from "react";
 import { ArrowRight, ArrowLeft, ExternalLink, Calendar, User, Tag, Star } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import type { Portfolio } from "@/lib/types";
+import { DEFAULT_PORTFOLIO } from "@/lib/site-content";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export function PortfolioShowcase() {
   const [portfolios, setPortfolios] = useState<Portfolio[]>([]);
+  // fallback: proyek nyata ketika database belum dikonfigurasi
   const [loading, setLoading] = useState(true);
   const { setView, setSelectedPortfolio, selectedCategory, setCategory } = useAppStore();
 
@@ -18,10 +20,13 @@ export function PortfolioShowcase() {
     fetch("/api/portfolio")
       .then((r) => r.json())
       .then((data) => {
-        setPortfolios(data.portfolios || []);
+        setPortfolios(data.portfolios?.length ? data.portfolios : DEFAULT_PORTFOLIO);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        setPortfolios(DEFAULT_PORTFOLIO);
+        setLoading(false);
+      });
   }, []);
 
   const categories = useMemo(() => {

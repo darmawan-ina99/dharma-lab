@@ -1,6 +1,5 @@
 "use client";
 
-import { Shield } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 
 export function Footer() {
@@ -13,9 +12,15 @@ export function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl gradient-primary flex items-center justify-center shadow-lg shadow-purple-500/30">
-                <Shield className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3">
+              <div className="flex items-center rounded-xl bg-white p-1 shadow-md ring-1 ring-black/5">
+                <img
+                  src="/logo/dharmalabs-logo.png"
+                  alt="Logo resmi Dharma Labs"
+                  width={44}
+                  height={44}
+                  className="w-11 h-11 object-contain"
+                />
               </div>
               <div>
                 <div className="font-extrabold text-base">

@@ -7,6 +7,7 @@ import * as Icons from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import type { Service } from "@/lib/types";
 import { Card } from "@/components/ui/card";
+import { DEFAULT_SERVICES } from "@/lib/site-content";
 
 export function Services() {
   const [services, setServices] = useState<Service[]>([]);
@@ -17,10 +18,13 @@ export function Services() {
     fetch("/api/services")
       .then((r) => r.json())
       .then((data) => {
-        setServices(data.services || []);
+        setServices(data.services?.length ? data.services : DEFAULT_SERVICES);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        setServices(DEFAULT_SERVICES);
+        setLoading(false);
+      });
   }, []);
 
   const scrollToCta = () => {

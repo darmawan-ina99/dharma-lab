@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DEFAULT_WHATSAPP_NUMBER } from "@/lib/site-content";
 
 export function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [number, setNumber] = useState("6281234567890");
+  const [number, setNumber] = useState(DEFAULT_WHATSAPP_NUMBER);
   const [message, setMessage] = useState(
     "Halo Dharma Lab, saya ingin konsultasi tentang layanan digital Anda."
   );

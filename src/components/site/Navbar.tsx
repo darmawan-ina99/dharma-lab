@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle, Shield } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 
@@ -58,11 +58,14 @@ export function Navbar() {
               }}
               className="flex items-center gap-2 group"
             >
-              <div className="relative">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl gradient-primary flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-shadow">
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <div className="absolute inset-0 rounded-xl gradient-primary blur-md opacity-50 group-hover:opacity-75 transition-opacity" />
+              <div className="flex items-center rounded-xl bg-white p-1 shadow-md ring-1 ring-black/5 group-hover:shadow-lg transition-shadow">
+                <img
+                  src="/logo/dharmalabs-logo.png"
+                  alt="Logo resmi Dharma Labs"
+                  width={44}
+                  height={44}
+                  className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
+                />
               </div>
               <div className="text-left">
                 <div className="font-extrabold text-base sm:text-lg leading-none">
@@ -113,6 +116,7 @@ export function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-accent"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

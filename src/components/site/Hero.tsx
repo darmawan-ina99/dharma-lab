@@ -41,17 +41,18 @@ export function Hero() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-light text-xs font-semibold tracking-widest text-purple-700"
             >
               <Sparkles className="w-3.5 h-3.5" />
-              SOLUSI DIGITAL & KEAMANAN
+              IT SOLUTIONS &amp; INNOVATION
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05]"
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.12]"
             >
-              DHARMA{" "}
-              <span className="gradient-text">LAB</span>
+              Bangun, Lindungi, dan{" "}
+              <span className="gradient-text">Percepat</span> Bisnis Digital
+              Anda
             </motion.h1>
 
             <motion.p
@@ -60,10 +61,11 @@ export function Hero() {
               transition={{ delay: 0.3 }}
               className="text-lg sm:text-xl text-purple-100/80 max-w-xl leading-relaxed"
             >
-              Teknologi untuk{" "}
-              <span className="text-white font-semibold">melindungi</span>,{" "}
-              <span className="text-white font-semibold">mengembangkan</span>, dan{" "}
-              <span className="text-white font-semibold">mempercepat</span> bisnis Anda di era digital.
+              Dari aplikasi bisnis dan website profesional hingga keamanan
+              digital dan otomasi proses —{" "}
+              <span className="text-white font-semibold">Dharma Labs</span>{" "}
+              menghadirkan solusi teknologi yang terukur untuk perusahaan dan
+              UMKM.
             </motion.p>
 
             {/* Feature pills */}
