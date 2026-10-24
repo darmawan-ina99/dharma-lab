@@ -160,8 +160,8 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-purple-300" />
                   <div>
-                    <div className="text-xs font-bold text-white">99.9%</div>
-                    <div className="text-[10px] text-purple-200/70">Uptime SLA</div>
+                    <div className="text-xs font-bold text-white">Konsultasi Gratis</div>
+                    <div className="text-[10px] text-purple-200/70">via WhatsApp</div>
                   </div>
                 </div>
               </motion.div>

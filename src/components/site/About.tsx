@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { Shield, Code, Target, Smartphone, Globe, Zap, Award, Users, Briefcase } from "lucide-react";
 
 const stats = [
-  { icon: Briefcase, value: "150+", label: "Proyek Selesai" },
-  { icon: Users, value: "80+", label: "Klien Puas" },
-  { icon: Award, value: "8+", label: "Tahun Pengalaman" },
-  { icon: Zap, value: "99.9%", label: "Uptime SLA" },
+  { icon: Briefcase, value: "Custom", label: "Solusi sesuai kebutuhan" },
+  { icon: Users, value: "2 Sektor", label: "Perusahaan & UMKM" },
+  { icon: Award, value: "Transparan", label: "Proses & hasil terukur" },
+  { icon: Zap, value: "Gratis", label: "Konsultasi awal tanpa biaya" },
 ];
 
 const values = [
@@ -28,8 +28,8 @@ const values = [
   },
   {
     icon: Globe,
-    title: "Support 24/7",
-    desc: "Tim ahli kami siap membantu kapan pun Anda membutuhkan. Respons cepat, solusi tepat.",
+    title: "Dukungan Responsif",
+    desc: "Hubungi kami via WhatsApp untuk diskusi kebutuhan dan dukungan teknis. Respons cepat, solusi tepat.",
   },
 ];
 
